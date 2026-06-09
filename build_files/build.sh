@@ -2,23 +2,32 @@
 
 set -ouex pipefail
 
-### Install packages
+arch=$(uname -m)
 
-# Packages can be installed from any enabled yum repo on the image.
-# RPMfusion repos are available by default in ublue main images
-# List of rpmfusion packages can be found here:
-# https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/43/x86_64/repoview/index.html&protocol=https&redirect=1
+# Codecs
+dnf install -y \
+        https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
+        https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+dnf config-manager setopt fedora-cisco-openh264.enabled=1 -y
+dnf swap -y ffmpeg-free ffmpeg --allowerasing
+dnf update -y @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
+if [ $arch  == "x86_64" ]; then
+        dnf install -y intel-media-driver libva-intel-driver
+fi
+dnf install -y rpmfusion-free-release-tainted libdvdcss
 
-# this installs a package from fedora repos
-dnf5 install -y tmux 
+# Helium - Web browser
+dnf copr enable -y imput/helium
+dnf install -y helium-bin
+dnf copr disable -y imput/helium
 
-# Use a COPR Example:
-#
-# dnf5 -y copr enable ublue-os/staging
-# dnf5 -y install package
-# Disable COPRs so they don't end up enabled on the final image:
-# dnf5 -y copr disable ublue-os/staging
+# Themeing
+dnf install -y adw-gtk3-theme
 
-#### Example for enabling a System Unit File
-
-systemctl enable podman.socket
+# Extensions
+dnf remove -y gnome-shell-extension-*
+dnf install -y \
+  gnome-shell-extension-blur-my-shell \
+  gnome-shell-extension-dash-to-dock \
+  gnome-shell-extension-gsconnect \
+  gnome-shell-extension-appindicator
