@@ -17,6 +17,9 @@ fi
 dnf install -y rpmfusion-free-release-tainted
 dnf install -y libdvdcss
 
+# Apps
+dnf install -y k3b
+
 # Themeing
 dnf install -y adw-gtk3-theme
 
