@@ -10,7 +10,7 @@ dnf install -y \
         https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 dnf config-manager setopt fedora-cisco-openh264.enabled=1 -y
 dnf swap -y ffmpeg-free ffmpeg --allowerasing
-dnf install -y @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
+dnf update -y '@multimedia' --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
 if [ $arch  == "x86_64" ]; then
         dnf install -y intel-media-driver libva-intel-driver
 fi
