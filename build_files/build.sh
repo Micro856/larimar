@@ -11,7 +11,6 @@ dnf install -y \
 dnf config-manager setopt fedora-cisco-openh264.enabled=1 -y
 dnf update -y
 dnf swap -y ffmpeg-free ffmpeg --allowerasing
-dnf group install multimedia '@multimedia' --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
 if [ $arch  == "x86_64" ]; then
         dnf install -y intel-media-driver libva-intel-driver
 fi
