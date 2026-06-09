@@ -17,11 +17,6 @@ fi
 dnf install -y rpmfusion-free-release-tainted
 dnf install -y libdvdcss
 
-# Helium - Web browser
-dnf copr enable -y imput/helium
-dnf install -y helium-bin
-dnf copr disable -y imput/helium
-
 # Themeing
 dnf install -y adw-gtk3-theme
 
