@@ -9,12 +9,12 @@ dnf install -y \
         https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
         https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 dnf config-manager setopt fedora-cisco-openh264.enabled=1 -y
-dnf update -y
-dnf swap -y ffmpeg-free ffmpeg --allowerasing
+dnf update -y --refresh
+dnf swap -y --refresh ffmpeg-free ffmpeg --allowerasing
 if [ $arch  == "x86_64" ]; then
-        dnf install -y intel-media-driver libva-intel-driver
+        dnf install -y --refresh intel-media-driver libva-intel-driver
 fi
-dnf install -y rpmfusion-free-release-tainted libdvdcss
+dnf install -y --refresh rpmfusion-free-release-tainted libdvdcss
 
 # Helium - Web browser
 dnf copr enable -y imput/helium
