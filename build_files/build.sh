@@ -9,7 +9,7 @@ dnf install -y \
         https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
         https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 dnf config-manager setopt fedora-cisco-openh264.enabled=1 -y
-dnf update
+dnf update -y
 dnf swap -y ffmpeg-free ffmpeg --allowerasing
 dnf group install multimedia '@multimedia' --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
 if [ $arch  == "x86_64" ]; then
