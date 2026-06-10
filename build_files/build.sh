@@ -39,8 +39,8 @@ dnf install -y \
   nautilus-python nautilus-extensions
 git clone https://github.com/Tudmotu/gnome-shell-extension-clipboard-indicator.git /usr/share/gnome-shell/extensions/clipboard-indicator@tudmotu.com
   # Bing Wallpaper extension
-git clone https://github.com/Tudmotu/gnome-shell-extension-clipboard-indicator.git /tmp/gnome-shell-extension-clipboard-indicator
-cd /tmp/gnome-shell-extension-clipboard-indicator
+git clone https://github.com/neffo/bing-wallpaper-gnome-extension.git /tmp/bing-wallpaper-gnome-extension
+cd /tmp/bing-wallpaper-gnome-extension
 chmod +x buildzip.sh
 ./buildzip.sh
 mkdir -p /usr/share/gnome-shell/extensions/BingWallpaper@ineffable-gmail.com
