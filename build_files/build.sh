@@ -23,6 +23,9 @@ dnf install -y k3b --setopt=install_weak_deps=False
 # Themeing
 dnf install -y adw-gtk3-theme
 
+# Wallpapers
+dnf remove -y f*-backgrounds f*-backgrounds-*
+
 # Extensions
 dnf remove -y gnome-shell-extension-*
 dnf install -y \
