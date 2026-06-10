@@ -51,17 +51,13 @@ jobs:
 
       - name: Build ISO
         id: build-iso
-        env:
-          IMAGE_REGISTRY: ${{ env.IMAGE_REGISTRY }}
-          IMAGE_NAME: ${{ env.IMAGE_NAME }}
-          DEFAULT_TAG: ${{ env.DEFAULT_TAG }}
         uses: osbuild/bootc-image-builder-action@main
         with:
           config-file: './iso.toml'
-          image: ${IMAGE_REGISTRY}/${IMAGE_NAME}:${DEFAULT_TAG}
+          image: ${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.DEFAULT_TAG }}
           types: anaconda-iso
           rootfs: btrfs
-          additional-args: --use-librepo=False
+          additional-args: --use-librepo=True
 
       - name: Upload Artifact
         uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v5
