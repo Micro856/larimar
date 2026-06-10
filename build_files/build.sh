@@ -35,9 +35,15 @@ dnf install -y \
   gnome-shell-extension-blur-my-shell \
   gnome-shell-extension-dash-to-dock \
   gnome-shell-extension-gsconnect \
-  gnome-shell-extension-appindicator
+  gnome-shell-extension-appindicator \
+  nautilus-python nautilus-extensions
+git clone https://github.com/Tudmotu/gnome-shell-extension-clipboard-indicator.git /usr/share/gnome-shell/extensions/clipboard-indicator@tudmotu.com
+
+# Random crap
+dnf install -y fastfetch
 
 # Debloat
 sudo dnf remove -y gnome-tour gnome-system-monitor gnome-software gnome-software* firefox firefox* yelp
 echo "NoDisplay=true" >> /usr/share/applications/gcdmaster.desktop
 echo "NoDisplay=true" >> /usr/share/applications/org.freedesktop.MalcontentControl.desktop
+echo "NoDisplay=true" >> /usr/share/applications/org.gnome.Extensions.desktop
