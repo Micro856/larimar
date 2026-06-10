@@ -37,5 +37,7 @@ dnf install -y \
   gnome-shell-extension-gsconnect \
   gnome-shell-extension-appindicator
 
-  # Debloat
-  sudo dnf remove -y gnome-tour gnome-system-monitor gnome-software gnome-software* firefox firefox* yelp
+# Debloat
+sudo dnf remove -y gnome-tour gnome-system-monitor gnome-software gnome-software* firefox firefox* yelp
+echo "NoDisplay=true" >> /usr/share/applications/gcdmaster.desktop
+echo "NoDisplay=true" >> /usr/share/applications/org.freedesktop.MalcontentControl.desktop
