@@ -36,3 +36,6 @@ dnf install -y \
   gnome-shell-extension-dash-to-dock \
   gnome-shell-extension-gsconnect \
   gnome-shell-extension-appindicator
+
+  # Debloat
+  sudo dnf remove -y gnome-tour gnome-system-monitor gnome-software gnome-software* firefox firefox* yelp
