@@ -46,7 +46,7 @@ rm -rf /tmp/bing-wallpaper-gnome-extension/schemas/gschemas.compiled
 ./buildzip.sh
 mkdir -p /usr/share/gnome-shell/extensions/BingWallpaper@ineffable-gmail.com
 unzip -o BingWallpaper@ineffable-gmail.com.zip -d /usr/share/gnome-shell/extensions/BingWallpaper@ineffable-gmail.com/
-glib-compile-schemas /tmp/bing-wallpaper-gnome-extension/schemas/
+glib-compile-schemas /usr/share/gnome-shell/extensions/BingWallpaper@ineffable-gmail.com/schemas/
 cd /
   # Workspace scroll extension
 git clone https://github.com/PolyMeilex/gnome-shell-extension-panel-workspace-scroll.git /tmp/gnome-shell-extension-panel-workspace-scroll
