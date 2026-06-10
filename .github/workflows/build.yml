@@ -156,13 +156,6 @@ jobs:
         id: date
         run: echo "date=$(date -u +%Y\-%m\-%d\T%H\:%M\:%S\Z)" | tee "${GITHUB_OUTPUT}"
 
-      - name: Prepare environment
-        env:
-          REPO_OWNER: ${{ github.repository_owner }}
-        run: |
-          # Lowercase the image uri
-          echo "IMAGE_REGISTRY=${REPO_OWNER,,}" >> ${GITHUB_ENV}
-
       - name: Image Metadata
         uses: docker/metadata-action@c299e40c65443455700f0fdfc63efafe5b349051 # v5
         id: metadata
@@ -171,7 +164,7 @@ jobs:
           IMAGE_KEYWORDS: "bootc,fedora,arm64,x86_64,gnome"
           IMAGE_LOGO_URL: "https://avatars.githubusercontent.com/u/121560464?s=400&v=4"
           IMAGE_NAME: "${{ github.event.repository.name }}"
-          IMAGE_REGISTRY: "ghcr.io/${REPO_OWNER}"
+          IMAGE_REGISTRY: "ghcr.io/micro856"
           DEFAULT_TAG: "latest"
         with:
           tags: |
@@ -233,8 +226,6 @@ jobs:
       - name: Publish manifest with unified architecture and sign
         shell: bash
         env:
-          IMAGE_NAME: "${{ github.event.repository.name }}"
-          IMAGE_REGISTRY: "ghcr.io/${REPO_OWNER}"
           COSIGN_EXPERIMENTAL: false
           COSIGN_PRIVATE_KEY: ${{ secrets.SIGNING_SECRET }}
           LABELS: ${{ steps.metadata.outputs.labels }}
@@ -249,7 +240,7 @@ jobs:
           # This is insanely dumb, please PR if you have a better solution ~ @tulilirockz :3c
           IMAGES=$(cat "${OUTPUT_CSV_FILE}" | while IFS=$'\n' read -r ENTRY ; do echo "${ENTRY}" | cut -d, -f2 ; done | sort | uniq | tr "\n" " " | sed 's/.$//')
           for TARGET_IMAGE in ${IMAGES} ; do
-            TARGET_MANIFEST="${IMAGE_REGISTRY}/${TARGET_IMAGE}"
+            TARGET_MANIFEST="ghcr.io/micro856/${TARGET_IMAGE}"
             podman manifest create "${TARGET_MANIFEST}"
 
             PLATFORMS=$(grep -F -e "${IMAGE}" "${OUTPUT_CSV_FILE}" | while IFS=$'\n' read -r ENTRY ; do echo "${ENTRY}" | cut -d, -f1 ; done | sort | uniq | tr "\n" " " | sed 's/.$//')
