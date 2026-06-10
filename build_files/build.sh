@@ -42,9 +42,11 @@ git clone https://github.com/Tudmotu/gnome-shell-extension-clipboard-indicator.g
 git clone https://github.com/neffo/bing-wallpaper-gnome-extension.git /tmp/bing-wallpaper-gnome-extension
 cd /tmp/bing-wallpaper-gnome-extension
 chmod +x buildzip.sh
+rm -rf /tmp/bing-wallpaper-gnome-extension/schemas/gschemas.compiled
 ./buildzip.sh
 mkdir -p /usr/share/gnome-shell/extensions/BingWallpaper@ineffable-gmail.com
 unzip -o BingWallpaper@ineffable-gmail.com.zip -d /usr/share/gnome-shell/extensions/BingWallpaper@ineffable-gmail.com/
+glib-compile-schemas /tmp/bing-wallpaper-gnome-extension/schemas/
 cd /
   # Workspace scroll extension
 git clone https://github.com/PolyMeilex/gnome-shell-extension-panel-workspace-scroll.git /tmp/gnome-shell-extension-panel-workspace-scroll
