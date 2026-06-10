@@ -148,17 +148,6 @@ jobs:
             fi
           done
 
-      - name: Prepare environment
-        env:
-          IMAGE_REGISTRY: ${{ env.IMAGE_REGISTRY }}
-          IMAGE_NAME: ${{ env.IMAGE_NAME }}
-          IMAGE_DIGEST: ${{ steps.load.outputs.digest }}
-          PLATFORM: ${{ matrix.platform }}
-        run: |
-          # Lowercase the image uri
-          echo "IMAGE_REGISTRY=${IMAGE_REGISTRY,,}" >> ${GITHUB_ENV}
-          echo "IMAGE_NAME=${IMAGE_NAME,,}" >> ${GITHUB_ENV}
-
         # This generates a timestamp like what is defined on the ArtifactHub documentation
         # E.G: 2022-02-08T15:38:15Z'
         # https://artifacthub.io/docs/topics/repositories/container-images/
@@ -166,6 +155,13 @@ jobs:
       - name: Get current date
         id: date
         run: echo "date=$(date -u +%Y\-%m\-%d\T%H\:%M\:%S\Z)" | tee "${GITHUB_OUTPUT}"
+
+      - name: Prepare environment
+        env:
+          REPO_OWNER: ${{ github.repository_owner }}
+        run: |
+          # Lowercase the image uri
+          echo "IMAGE_REGISTRY=${REPO_OWNER,,}" >> ${GITHUB_ENV}
 
       - name: Image Metadata
         uses: docker/metadata-action@c299e40c65443455700f0fdfc63efafe5b349051 # v5
@@ -175,7 +171,7 @@ jobs:
           IMAGE_KEYWORDS: "bootc,fedora,arm64,x86_64,gnome"
           IMAGE_LOGO_URL: "https://avatars.githubusercontent.com/u/121560464?s=400&v=4"
           IMAGE_NAME: "${{ github.event.repository.name }}"
-          IMAGE_REGISTRY: "ghcr.io/${{ github.repository_owner }}"
+          IMAGE_REGISTRY: "ghcr.io/${REPO_OWNER}"
           DEFAULT_TAG: "latest"
         with:
           tags: |
@@ -237,8 +233,8 @@ jobs:
       - name: Publish manifest with unified architecture and sign
         shell: bash
         env:
-          IMAGE_REGISTRY: ${{ env.IMAGE_REGISTRY }}
-          IMAGE_NAME: ${{ env.IMAGE_NAME }}
+          IMAGE_NAME: "${{ github.event.repository.name }}"
+          IMAGE_REGISTRY: "ghcr.io/${REPO_OWNER}"
           COSIGN_EXPERIMENTAL: false
           COSIGN_PRIVATE_KEY: ${{ secrets.SIGNING_SECRET }}
           LABELS: ${{ steps.metadata.outputs.labels }}
