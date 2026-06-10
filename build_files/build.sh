@@ -19,6 +19,9 @@ dnf install -y libdvdcss
 
 # Apps
 dnf install -y k3b --setopt=install_weak_deps=False
+rpm --import https://packages.microsoft.com/keys/microsoft.asc
+echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo > /dev/null
+dnf install -y --refresh code
 
 # Themeing
 dnf install -y adw-gtk3-theme
