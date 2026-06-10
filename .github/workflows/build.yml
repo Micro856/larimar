@@ -12,6 +12,7 @@ on:
     paths-ignore:
       - "**/README.md"
       - "**/iso.toml"
+      - "**/.github/workflows/build-disk.yml"
   workflow_dispatch:
 
 env:
@@ -37,7 +38,13 @@ jobs:
     steps:
       - name: Maximize build space
         uses: ublue-os/remove-unwanted-software@695eb75bc387dbcd9685a8e72d23439d8686cba6
-        
+
+      - name: Prepare environment
+        run: |
+          # Lowercase the image uri
+          echo "IMAGE_REGISTRY=${IMAGE_REGISTRY,,}" >> ${GITHUB_ENV}
+          echo "IMAGE_NAME=${IMAGE_NAME,,}" >> ${GITHUB_ENV}
+      
       - name: Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
         with:
@@ -152,6 +159,13 @@ jobs:
       - name: Image Metadata
         uses: docker/metadata-action@c299e40c65443455700f0fdfc63efafe5b349051 # v5
         id: metadata
+        env:
+          IMAGE_DESC: "Larimar"
+          IMAGE_KEYWORDS: "bootc,fedora,arm64,x86_64,gnome"
+          IMAGE_LOGO_URL: "https://avatars.githubusercontent.com/u/121560464?s=400&v=4"
+          IMAGE_NAME: "${{ github.event.repository.name }}"
+          IMAGE_REGISTRY: "ghcr.io/${{ github.repository_owner }}"
+          DEFAULT_TAG: "latest"
         with:
           tags: |
             type=raw,value=${{ env.DEFAULT_TAG }}
