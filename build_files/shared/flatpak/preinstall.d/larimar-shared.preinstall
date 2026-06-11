@@ -54,10 +54,6 @@ IsRuntime=false
 Branch=stable
 IsRuntime=false
 
-[Flatpak Preinstall org.kde.lokalize]
-Branch=stable
-IsRuntime=false
-
 [Flatpak Preinstall org.onlyoffice.desktopeditors]
 Branch=stable
 IsRuntime=false
