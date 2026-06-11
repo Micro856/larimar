@@ -64,6 +64,8 @@ elif [ $arch == "aarch64" ]; then
         cp -r /ctx/arm/flatpak /usr/share
 fi
 cp -r /ctx/lib /usr
+rm -rf /usr/lib/systemd/system/flatpak-add-fedora-repos.service
+systemctl enable flatpak-add-flathub-repos
 systemctl enable flatpak-preinstall
 
 # Random crap
