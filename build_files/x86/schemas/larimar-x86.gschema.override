@@ -1,0 +1,2 @@
+[org.gnome.shell]
+favorite-apps=['org.gnome.Nautilus.desktop', 'com.google.Chrome.desktop', 'io.github.kolunmi.Bazaar.desktop']

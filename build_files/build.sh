@@ -28,6 +28,7 @@ dnf install -y adw-gtk3-theme
 
 # Wallpapers
 dnf remove -y f*-backgrounds f*-backgrounds-*
+cp -r /ctx/shared/gnome-background-properties /usr/share
 
 # Extensions
 dnf remove -y gnome-shell-extension-*
@@ -42,6 +43,17 @@ git clone https://github.com/Tudmotu/gnome-shell-extension-clipboard-indicator.g
 git clone https://github.com/PolyMeilex/gnome-shell-extension-panel-workspace-scroll.git /tmp/gnome-shell-extension-panel-workspace-scroll
 cp -r /tmp/gnome-shell-extension-panel-workspace-scroll/panel-workspace-scroll@polymeilex.github.io /usr/share/gnome-shell/extensions/
 cd /
+
+
+# Schemas
+cp -r /ctx/shared/schemas /usr/share/glib-2.0
+if [ $arch  == "x86_64" ]; then
+        cp -r /ctx/x86/schemas /usr/share/glib-2.0
+elif [ $arch == "aarch64" ]; then
+        cp -r /ctx/arm/schemas /usr/share/glib-2.0
+fi
+rm -rf /usr/share/glib-2.0/schemas/gschemas.compiled
+glib-compile-schemas /usr/share/glib-2.0/schemas
 
 # Random crap
 dnf install -y fastfetch

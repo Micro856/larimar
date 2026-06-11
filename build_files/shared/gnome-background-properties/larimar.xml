@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE wallpapers SYSTEM "gnome-wp-list.dtd">
+<wallpapers>
+  <wallpaper deleted="false">
+    <name>Larimar Default - Glass Chip (Light Only)</name>
+    <filename>/usr/share/backgrounds/gnome/glass-chip-l.jxl</filename>
+    <options>zoom</options>
+    <shade_type>solid</shade_type>
+    <pcolor>#26a269</pcolor>
+    <scolor>#000000</scolor>
+  </wallpaper>
+</wallpapers>
