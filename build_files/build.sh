@@ -46,6 +46,7 @@ cd /
 
 
 # Schemas
+rm -rf /usr/share/glib-2.0/schemas/org.gnome.shell.gschema.override
 cp -r /ctx/shared/schemas /usr/share/glib-2.0
 if [ $arch  == "x86_64" ]; then
         cp -r /ctx/x86/schemas /usr/share/glib-2.0
