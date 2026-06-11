@@ -63,7 +63,7 @@ if [ $arch  == "x86_64" ]; then
 elif [ $arch == "aarch64" ]; then
         cp -r /ctx/arm/flatpak /usr/share
 fi
-cp -r /ctx/lib /usr/lib
+cp -r /ctx/lib /usr
 systemctl enable flatpak-preinstall
 
 # Random crap
