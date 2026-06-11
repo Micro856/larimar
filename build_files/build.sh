@@ -4,6 +4,8 @@ set -ouex pipefail
 
 arch=$(uname -m)
 
+dnf install -y dbus-daemon
+
 # Codecs
 dnf install -y \
         https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
