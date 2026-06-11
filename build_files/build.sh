@@ -56,6 +56,16 @@ fi
 rm -rf /usr/share/glib-2.0/schemas/gschemas.compiled
 glib-compile-schemas /usr/share/glib-2.0/schemas
 
+# Flatpaks
+cp -r /ctx/shared/flatpak /usr/share
+if [ $arch  == "x86_64" ]; then
+        cp -r /ctx/x86/flatpak /usr/share
+elif [ $arch == "aarch64" ]; then
+        cp -r /ctx/arm/flatpak /usr/share
+fi
+cp -r /ctx/lib /usr/lib
+systemctl enable flatpak-preinstall
+
 # Random crap
 dnf install -y fastfetch
 

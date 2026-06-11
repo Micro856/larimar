@@ -1,0 +1,19 @@
+[Flatpak Preinstall org.gnome.Fractal]
+Branch=stable
+IsRuntime=false
+
+[Flatpak Preinstall org.keepassxc.KeePassXC]
+Branch=stable
+IsRuntime=false
+
+[Flatpak Preinstall com.google.Chrome]
+Branch=stable
+IsRuntime=false
+
+[Flatpak Preinstall org.gimp.GIMP]
+Branch=stable
+IsRuntime=false
+
+[Flatpak Preinstall org.kde.Krita]
+Branch=stable
+IsRuntime=false

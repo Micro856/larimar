@@ -1,0 +1,55 @@
+[Flatpak Preinstall org.gnome.Calculator]
+Branch=stable
+IsRuntime=false
+
+[Flatpak Preinstall org.gnome.TextEditor]
+Branch=stable
+IsRuntime=false
+
+[Flatpak Preinstall org.gnome.Showtime]
+Branch=stable
+IsRuntime=false
+
+[Flatpak Preinstall io.github.kolunmi.Bazaar]
+Branch=stable
+IsRuntime=false
+
+[Flatpak Preinstall com.ranfdev.DistroShelf]
+Branch=stable
+IsRuntime=false
+
+[Flatpak Preinstall com.github.tchx84.Flatseal]
+Branch=stable
+IsRuntime=false
+
+[Flatpak Preinstall it.mijorus.gearlever]
+Branch=stable
+IsRuntime=false
+
+[Flatpak Preinstall io.github.pol_rivero.github-desktop-plus]
+Branch=stable
+IsRuntime=false
+
+[Flatpak Preinstall org.gnome.gitlab.wwarner.Solitaire]
+Branch=stable
+IsRuntime=false
+
+[Flatpak Preinstall org.kde.lokalize]
+Branch=stable
+IsRuntime=false
+
+[Flatpak Preinstall org.onlyoffice.desktopeditors]
+Branch=stable
+IsRuntime=false
+
+[Flatpak Preinstall io.bassi.Amberol]
+Branch=stable
+IsRuntime=false
+
+[Flatpak Preinstall org.gtk.Gtk3theme.adw-gtk3]
+Branch=stable
+IsRuntime=false
+
+[Flatpak Preinstall org.gtk.Gtk3theme.adw-gtk3-dark]
+Branch=stable
+IsRuntime=false
