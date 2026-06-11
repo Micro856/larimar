@@ -65,6 +65,8 @@ elif [ $arch == "aarch64" ]; then
 fi
 cp -r /ctx/lib /usr
 rm -rf /usr/lib/systemd/system/flatpak-add-fedora-repos.service
+mkdir -p /etc/flatpak/remotes.d/
+curl --retry 3 -Lo /etc/flatpak/remotes.d/flathub.flatpakrepo https://dl.flathub.org/repo/flathub.flatpakrepo
 systemctl enable flatpak-add-flathub-repos
 systemctl enable flatpak-preinstall
 

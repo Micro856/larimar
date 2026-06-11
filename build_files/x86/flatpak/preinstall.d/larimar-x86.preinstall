@@ -17,3 +17,11 @@ IsRuntime=false
 [Flatpak Preinstall org.kde.Krita]
 Branch=stable
 IsRuntime=false
+
+[Flatpak Preinstall com.valvesoftware.Steam]
+Branch=stable
+IsRuntime=false
+
+[Flatpak Preinstall net.lutris.Lutris]
+Branch=stable
+IsRuntime=false

@@ -10,6 +10,26 @@ IsRuntime=false
 Branch=stable
 IsRuntime=false
 
+[Flatpak Preinstall org.gnome.Papers]
+Branch=stable
+IsRuntime=false
+
+[Flatpak Preinstall org.gnome.Calendar]
+Branch=stable
+IsRuntime=false
+
+[Flatpak Preinstall org.gnome.Loupe]
+Branch=stable
+IsRuntime=false
+
+[Flatpak Preinstall org.gnome.Geary]
+Branch=stable
+IsRuntime=false
+
+[Flatpak Preinstall org.gnome.SimpleScan]
+Branch=stable
+IsRuntime=false
+
 [Flatpak Preinstall io.github.kolunmi.Bazaar]
 Branch=stable
 IsRuntime=false
@@ -43,6 +63,18 @@ Branch=stable
 IsRuntime=false
 
 [Flatpak Preinstall io.bassi.Amberol]
+Branch=stable
+IsRuntime=false
+
+[Flatpak Preinstall net.nokyan.Resources]
+Branch=stable
+IsRuntime=false
+
+[Flatpak Preinstall com.mattjakeman.ExtensionManager]
+Branch=stable
+IsRuntime=false
+
+[Flatpak Preinstall app.drey.Warp]
 Branch=stable
 IsRuntime=false
 

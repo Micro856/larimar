@@ -11,7 +11,7 @@ Documentation=man:flatpak-preinstall(1)
 [Service]
 Type=oneshot
 ExecStart=mkdir -p /var/lib/larimar
-ExecStart=/usr/bin/flatpak preinstall -y --noninteractive --system
+ExecStart=/usr/bin/dbus-run-session -- /usr/bin/flatpak preinstall -y --noninteractive --system
 ExecStart=touch /var/lib/larimar/preinstall-finished
 RemainAfterExit=true
 Restart=on-failure
