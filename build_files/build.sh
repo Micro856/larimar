@@ -80,7 +80,8 @@ dnf install -y fastfetch distrobox
 # Brew proxy
 git clone https://codeberg.org/HastD/brew-proxy.git /tmp/brew-proxy
 cd /tmp/brew-proxy
-sudo dnf -y install cargo
+dnf -y install cargo
+rm -rf /root/.cargo
 cargo build --release
 cp -R usr /
 install target/release/brew-proxy /usr/bin/
