@@ -77,19 +77,6 @@ systemctl enable flatpak-preinstall
 # Random crap
 dnf install -y fastfetch distrobox
 
-# Brew proxy
-git clone https://codeberg.org/HastD/brew-proxy.git /tmp/brew-proxy
-cd /tmp/brew-proxy
-dnf -y install cargo
-rm -rf /root/.cargo
-cargo build --release
-cp -R usr /
-install target/release/brew-proxy /usr/bin/
-install target/release/brew-proxy-daemon /usr/libexec/brew-proxy/
-dnf remove -y cargo
-cd /
-systemctl enable brew-proxy-setup.service
-
 # Debloat
 dnf remove -y gnome-tour gnome-system-monitor gnome-software gnome-software* firefox firefox* yelp
 echo "NoDisplay=true" >> /usr/share/applications/gcdmaster.desktop
