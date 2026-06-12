@@ -24,7 +24,7 @@ if [ $arch  == "x86_64" ]; then
         dnf install -y k3b --setopt=install_weak_deps=False
 fi
 rpm --import https://packages.microsoft.com/keys/microsoft.asc
-echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo > /dev/null
+echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | tee /etc/yum.repos.d/vscode.repo > /dev/null
 dnf install -y --refresh code
 
 # Themeing
@@ -86,12 +86,12 @@ cargo build --release
 cp -R usr /
 install target/release/brew-proxy /usr/bin/
 install target/release/brew-proxy-daemon /usr/libexec/brew-proxy/
-sudo dnf remove -y cargo
+dnf remove -y cargo
 cd /
 systemctl enable brew-proxy-setup.service
 
 # Debloat
-sudo dnf remove -y gnome-tour gnome-system-monitor gnome-software gnome-software* firefox firefox* yelp
+dnf remove -y gnome-tour gnome-system-monitor gnome-software gnome-software* firefox firefox* yelp
 echo "NoDisplay=true" >> /usr/share/applications/gcdmaster.desktop
 echo "NoDisplay=true" >> /usr/share/applications/org.freedesktop.MalcontentControl.desktop
 echo "NoDisplay=true" >> /usr/share/applications/org.gnome.Extensions.desktop
