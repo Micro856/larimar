@@ -20,7 +20,9 @@ dnf install -y rpmfusion-free-release-tainted
 dnf install -y libdvdcss
 
 # Apps
-dnf install -y k3b lokalize --setopt=install_weak_deps=False
+if [ $arch  == "x86_64" ]; then
+        dnf install -y k3b --setopt=install_weak_deps=False
+fi
 rpm --import https://packages.microsoft.com/keys/microsoft.asc
 echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo > /dev/null
 dnf install -y --refresh code
@@ -74,6 +76,17 @@ systemctl enable flatpak-preinstall
 
 # Random crap
 dnf install -y fastfetch distrobox
+
+# Brew proxy
+git clone https://codeberg.org/HastD/brew-proxy.git /tmp/brew-proxy
+cd /tmp/brew-proxy
+sudo dnf install cargo
+cargo build --release
+cp -R usr /
+install target/release/brew-proxy /usr/bin/
+install target/release/brew-proxy-daemon /usr/libexec/brew-proxy/
+cd /
+systemctl enable brew-proxy-setup.service
 
 # Debloat
 sudo dnf remove -y gnome-tour gnome-system-monitor gnome-software gnome-software* firefox firefox* yelp
