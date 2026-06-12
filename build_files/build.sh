@@ -75,7 +75,8 @@ systemctl enable flatpak-add-flathub-repos
 systemctl enable flatpak-preinstall
 
 # Random crap
-dnf install -y fastfetch distrobox gcc development-tools
+dnf install -y fastfetch distrobox gcc
+dnf group install -y development-tools
 
 # Debloat
 dnf remove -y gnome-tour gnome-system-monitor gnome-software gnome-software* firefox firefox* yelp
