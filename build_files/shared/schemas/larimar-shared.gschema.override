@@ -18,7 +18,7 @@ secondary-color='#000000'
 button-layout='appmenu:minimize,close'
 
 [org.gnome.shell]
-enabled-extensions=['appindicatorsupport@rgcjonas.gmail.com', 'gsconnect@andyholmes.github.io', 'dash-to-dock@micxgx.gmail.com', 'blur-my-shell@aunetx', 'clipboard-indicator@tudmotu.com', 'panel-workspace-scroll@polymeilex.github.io']
+enabled-extensions=['appindicatorsupport@rgcjonas.gmail.com', 'gsconnect@andyholmes.github.io', 'dash-to-dock@micxgx.gmail.com', 'blur-my-shell@aunetx', 'panel-workspace-scroll@polymeilex.github.io']
 
 [org.gnome.shell.extensions.blur-my-shell]
 rounded-blur-found=false
@@ -72,9 +72,6 @@ pipeline='pipeline_default'
 [org.gnome.shell.extensions.blur-my-shell.window-list]
 brightness=0.59999999999999998
 sigma=30
-
-[org.gnome.shell.extensions.clipboard-indicator]
-blink-icon-on-copy=true
 
 [org.gnome.shell.extensions.dash-to-dock]
 background-opacity=0.80000000000000004
