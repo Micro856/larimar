@@ -39,7 +39,6 @@ dnf remove -y gnome-shell-extension-*
 dnf install -y \
   gnome-shell-extension-blur-my-shell \
   gnome-shell-extension-gsconnect \
-  gnome-shell-extension-appindicator \
   nautilus-python nautilus-extensions
   # Workspace scroll extension
 git clone https://github.com/PolyMeilex/gnome-shell-extension-panel-workspace-scroll.git /tmp/gnome-shell-extension-panel-workspace-scroll
