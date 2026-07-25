@@ -42,16 +42,6 @@ sigma=10
 [org.gnome.shell.extensions.blur-my-shell.coverflow-alt-tab]
 pipeline='pipeline_default'
 
-[org.gnome.shell.extensions.blur-my-shell.dash-to-dock]
-blur=true
-brightness=0.59999999999999998
-override-background=true
-pipeline='pipeline_default'
-sigma=30
-static-blur=true
-style-dash-to-dock=0
-unblur-in-overview=false
-
 [org.gnome.shell.extensions.blur-my-shell.lockscreen]
 pipeline='pipeline_default'
 
@@ -72,13 +62,3 @@ pipeline='pipeline_default'
 [org.gnome.shell.extensions.blur-my-shell.window-list]
 brightness=0.59999999999999998
 sigma=30
-
-[org.gnome.shell.extensions.dash-to-dock]
-background-opacity=0.80000000000000004
-custom-theme-shrink=true
-dash-max-icon-size=48
-disable-overview-on-startup=true
-dock-fixed=true
-dock-position='LEFT'
-extend-height=true
-multi-monitor=true
