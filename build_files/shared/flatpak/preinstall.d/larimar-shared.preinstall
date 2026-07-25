@@ -14,19 +14,7 @@ IsRuntime=false
 Branch=stable
 IsRuntime=false
 
-[Flatpak Preinstall org.gnome.Calendar]
-Branch=stable
-IsRuntime=false
-
 [Flatpak Preinstall org.gnome.Loupe]
-Branch=stable
-IsRuntime=false
-
-[Flatpak Preinstall org.gnome.Geary]
-Branch=stable
-IsRuntime=false
-
-[Flatpak Preinstall org.gnome.SimpleScan]
 Branch=stable
 IsRuntime=false
 
@@ -51,10 +39,6 @@ Branch=stable
 IsRuntime=false
 
 [Flatpak Preinstall org.onlyoffice.desktopeditors]
-Branch=stable
-IsRuntime=false
-
-[Flatpak Preinstall io.bassi.Amberol]
 Branch=stable
 IsRuntime=false
 
