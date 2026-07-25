@@ -46,10 +46,6 @@ IsRuntime=false
 Branch=stable
 IsRuntime=false
 
-[Flatpak Preinstall io.github.pol_rivero.github-desktop-plus]
-Branch=stable
-IsRuntime=false
-
 [Flatpak Preinstall org.gnome.gitlab.wwarner.Solitaire]
 Branch=stable
 IsRuntime=false
@@ -75,6 +71,10 @@ Branch=stable
 IsRuntime=false
 
 [Flatpak Preinstall org.kde.lokalize]
+Branch=stable
+IsRuntime=false
+
+[Flatpak Preinstall org.gnome.Gtranslator]
 Branch=stable
 IsRuntime=false
 
