@@ -38,7 +38,6 @@ cp -r /ctx/shared/gnome-background-properties /usr/share
 dnf remove -y gnome-shell-extension-*
 dnf install -y \
   gnome-shell-extension-blur-my-shell \
-  gnome-shell-extension-dash-to-dock \
   gnome-shell-extension-gsconnect \
   gnome-shell-extension-appindicator \
   nautilus-python nautilus-extensions
