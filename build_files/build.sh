@@ -42,7 +42,6 @@ dnf install -y \
   gnome-shell-extension-gsconnect \
   gnome-shell-extension-appindicator \
   nautilus-python nautilus-extensions
-git clone https://github.com/Tudmotu/gnome-shell-extension-clipboard-indicator.git /usr/share/gnome-shell/extensions/clipboard-indicator@tudmotu.com
   # Workspace scroll extension
 git clone https://github.com/PolyMeilex/gnome-shell-extension-panel-workspace-scroll.git /tmp/gnome-shell-extension-panel-workspace-scroll
 cp -r /tmp/gnome-shell-extension-panel-workspace-scroll/panel-workspace-scroll@polymeilex.github.io /usr/share/gnome-shell/extensions/
@@ -75,8 +74,7 @@ systemctl enable flatpak-add-flathub-repos
 systemctl enable flatpak-preinstall
 
 # Random crap
-dnf install -y fastfetch distrobox gcc
-dnf group install -y development-tools
+dnf install -y fastfetch distrobox
 
 # Debloat
 dnf remove -y gnome-tour gnome-system-monitor gnome-software gnome-software* firefox firefox* yelp
