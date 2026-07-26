@@ -14,10 +14,15 @@ dnf config-manager setopt fedora-cisco-openh264.enabled=1 -y
 dnf update -y --refresh
 dnf swap -y ffmpeg-free ffmpeg --allowerasing
 if [ $arch  == "x86_64" ]; then
-        dnf install -y intel-media-driver libva-intel-driver
+        dnf install -y intel-media-driver solaar libva-intel-driver
 fi
 dnf install -y rpmfusion-free-release-tainted
 dnf install -y libdvdcss
+
+dnf copr -y enable ublue-os/packages
+dnf install -y uupd
+dnf copr -y disable ublue-os/packages
+systemctl enable uupd.timer
 
 # Apps
 if [ $arch  == "x86_64" ]; then
