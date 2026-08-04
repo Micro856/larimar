@@ -14,7 +14,7 @@ dnf config-manager setopt fedora-cisco-openh264.enabled=1 -y
 dnf update -y --refresh
 dnf swap -y ffmpeg-free ffmpeg --allowerasing
 if [ $arch  == "x86_64" ]; then
-        dnf install -y intel-media-driver solaar libva-intel-driver
+        dnf install -y intel-media-driver solaar libva-intel-driver --setopt=install_weal_deps=false
 fi
 dnf install -y rpmfusion-free-release-tainted
 dnf install -y libdvdcss
