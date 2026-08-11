@@ -14,7 +14,7 @@ dnf config-manager setopt fedora-cisco-openh264.enabled=1 -y
 dnf update -y --refresh
 dnf swap -y ffmpeg-free ffmpeg --allowerasing
 if [ $arch  == "x86_64" ]; then
-        dnf install -y intel-media-driver solaar libva-intel-driver --setopt=install_weal_deps=false
+        dnf install -y intel-media-driver libva-intel-driver
 fi
 dnf install -y rpmfusion-free-release-tainted
 dnf install -y libdvdcss
@@ -26,7 +26,7 @@ systemctl enable uupd.timer
 
 # Apps
 if [ $arch  == "x86_64" ]; then
-        dnf install -y k3b --setopt=install_weak_deps=False
+        dnf install -y k3b solaar--setopt=install_weak_deps=False
 fi
 rpm --import https://packages.microsoft.com/keys/microsoft.asc
 echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | tee /etc/yum.repos.d/vscode.repo > /dev/null
