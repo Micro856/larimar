@@ -32,7 +32,8 @@ dnf install -y -x google-noto-sans-cjk-vf-fonts -x default-fonts-cjk-sans -x fed
         libcamera libcamera-gstreamer libcamera-ipa libheif libcamera-tools libimobiledevice-utils libratbag-ratbagd \
         libva-utils lshw net-tools nvme-cli openrgb-udev-rules openssl pam-u2f pam_yubico pamu2fcfg \
         pipewire-plugin-libcamera smartmontools squashfs-tools symlinks tcpdump tmux traceroute \
-        usbmuxd wireguard-tools wl-clipboard xhost xorg-x11-xauth yubikey-manager zstd gvfs-nfs ibus-unikey ibus-mozc
+        usbmuxd wireguard-tools wl-clipboard xhost xorg-x11-xauth yubikey-manager zstd gvfs-nfs ibus-unikey ibus-mozc \
+        --setopt=install_weak_deps=False
 
 # Tailscale
 curl -fsSL https://tailscale.com/install.sh | sh
