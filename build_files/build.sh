@@ -73,10 +73,10 @@ cd /
   # Rounded Window Corners Reborn
 git clone https://github.com/flexagoon/rounded-window-corners.git /tmp/rounded-window-corners
 cd /tmp/rounded-window-corners
-dnf install -y --setopt=install_weak_deps=False nodejs
+dnf install -y --setopt=install_weak_deps=False nodejs nodejs24-npm
 sed -i 's/~\/.local\/share\/gnome-shell\/extensions/\/usr\/share\/gnome-shell\/extensions/g' justfile
 just install
-dnf remove -y --setopt=install_weak_deps=False nodejs
+dnf remove -y --setopt=install_weak_deps=False nodejs nodejs24-npm
 cd /
   # Static Workspace Background
 git clone https://github.com/CleoMenezesJr/static-workspace-background.git /tmp/static-workspace-background
