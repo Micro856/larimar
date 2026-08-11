@@ -35,6 +35,9 @@ dnf install -y -x google-noto-sans-cjk-vf-fonts -x default-fonts-cjk-sans -x fed
         usbmuxd wireguard-tools wl-clipboard xhost xorg-x11-xauth yubikey-manager zstd gvfs-nfs ibus-unikey ibus-mozc \
         --setopt=install_weak_deps=False
 
+# Random crap
+dnf install -y fastfetch distrobox make
+
 # Tailscale
 curl -fsSL https://tailscale.com/install.sh | sh
 
@@ -118,9 +121,6 @@ mkdir -p /etc/flatpak/remotes.d/
 curl --retry 3 -Lo /etc/flatpak/remotes.d/flathub.flatpakrepo https://dl.flathub.org/repo/flathub.flatpakrepo
 systemctl enable flatpak-add-flathub-repos
 systemctl enable flatpak-preinstall
-
-# Random crap
-dnf install -y fastfetch distrobox
 
 # Debloat
 dnf remove -y gnome-tour gnome-system-monitor gnome-software gnome-software* firefox firefox* yelp
