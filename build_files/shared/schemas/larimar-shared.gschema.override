@@ -18,7 +18,7 @@ secondary-color='#000000'
 button-layout='appmenu:minimize,close'
 
 [org.gnome.shell]
-enabled-extensions=['gsconnect@andyholmes.github.io', 'blur-my-shell@aunetx', 'panel-workspace-scroll@polymeilex.github.io']
+enabled-extensions=['gsconnect@andyholmes.github.io', 'blur-my-shell@aunetx', 'panel-workspace-scroll@polymeilex.github.io', 'rounded-window-corners@fxgn', 'gnome-fuzzy-app-search@gnome-shell-extensions.Czarlie.gitlab.com', 'static-workspace-background@CleoMenezesJr.github.io', 'Bluetooth-Battery-Meter@maniacx.github.com', 'tailscale-gnome@diskmth.fr', 'windowIsReady_Remover@nunofarruca@gmail.com']
 
 [org.gnome.shell.extensions.blur-my-shell]
 rounded-blur-found=false
