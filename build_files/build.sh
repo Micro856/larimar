@@ -75,6 +75,7 @@ git clone https://github.com/flexagoon/rounded-window-corners.git /tmp/rounded-w
 cd /tmp/rounded-window-corners
 dnf install -y --setopt=install_weak_deps=False nodejs nodejs24-npm
 sed -i 's/~\/.local\/share\/gnome-shell\/extensions/\/usr\/share\/gnome-shell\/extensions/g' justfile
+sed -i 's/npm install/npm install --cache \/tmp\/rounded-window-corners\/build/g' justfile
 just install
 dnf remove -y --setopt=install_weak_deps=False nodejs nodejs24-npm
 cd /
