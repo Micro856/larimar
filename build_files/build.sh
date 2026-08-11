@@ -34,6 +34,9 @@ dnf install -y -x google-noto-sans-cjk-vf-fonts -x default-fonts-cjk-sans -x fed
         pipewire-plugin-libcamera smartmontools squashfs-tools symlinks tcpdump tmux traceroute \
         usbmuxd wireguard-tools wl-clipboard xhost xorg-x11-xauth yubikey-manager zstd gvfs-nfs ibus-unikey ibus-mozc
 
+# Tailscale
+curl -fsSL https://tailscale.com/install.sh | sh
+
 # Apps
 if [ $arch  == "x86_64" ]; then
         dnf install -y k3b solaar solaar-udev --setopt=install_weak_deps=False
@@ -94,3 +97,8 @@ dnf remove -y gnome-tour gnome-system-monitor gnome-software gnome-software* fir
 echo "NoDisplay=true" >> /usr/share/applications/gcdmaster.desktop
 echo "NoDisplay=true" >> /usr/share/applications/org.freedesktop.MalcontentControl.desktop
 echo "NoDisplay=true" >> /usr/share/applications/org.gnome.Extensions.desktop
+
+# Rebuild kernel just in case
+QUALIFIED_KERNEL="$(dnf5 repoquery --installed --queryformat='%{evr}.%{arch}' "kernel")"
+/usr/bin/dracut --no-hostonly --kver "$QUALIFIED_KERNEL" --reproducible --zstd -v --add ostree --add fido2 -f "/usr/lib/modules/$QUALIFIED_KERNEL/initramfs.img"
+chmod 0600 /usr/lib/modules/"$QUALIFIED_KERNEL"/initramfs.img
