@@ -30,14 +30,7 @@ sigma=30
 style-dialogs=1
 
 [org.gnome.shell.extensions.blur-my-shell.applications]
-blur=true
-blur-on-overview=false
-brightness=1.0
-dynamic-opacity=true
-enable-all=true
-opacity=215
 pipeline='pipeline_default'
-sigma=10
 
 [org.gnome.shell.extensions.blur-my-shell.coverflow-alt-tab]
 pipeline='pipeline_default'
