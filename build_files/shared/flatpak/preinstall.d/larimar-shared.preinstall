@@ -54,11 +54,15 @@ IsRuntime=false
 Branch=stable
 IsRuntime=false
 
-[Flatpak Preinstall org.kde.lokalize]
+[Flatpak Preinstall org.gnome.baobab]
 Branch=stable
 IsRuntime=false
 
 [Flatpak Preinstall org.gnome.Gtranslator]
+Branch=stable
+IsRuntime=false
+
+[Flatpak Preinstall org.gnome.font-viewer]
 Branch=stable
 IsRuntime=false
 
