@@ -14,7 +14,7 @@ dnf config-manager setopt fedora-cisco-openh264.enabled=1 -y
 dnf update -y --refresh
 dnf swap -y ffmpeg-free ffmpeg --allowerasing
 if [ $arch  == "x86_64" ]; then
-        dnf install -y intel-media-driver libva-intel-driver
+        dnf install -y intel-media-driver libva-intel-driver powerstat
 fi
 dnf install -y rpmfusion-free-release-tainted
 dnf install -y libdvdcss
@@ -26,12 +26,12 @@ systemctl enable uupd.timer
 
 # Batteries from uBlue
 dnf install -y -x google-noto-sans-cjk-vf-fonts -x default-fonts-cjk-sans -x fedora-third-party\
-        alsa-firmware apr apr-util distrobox fdk-aac ffmpeg ffmpeg-libs ffmpegthumbnailer flatpak-spawn fuse \
+        alsa-firmware apr apr-util distrobox fdk-aac ffmpeg-libs ffmpegthumbnailer flatpak-spawn fuse \
         fzf google-noto-sans-balinese-fonts google-noto-sans-cjk-fonts google-noto-sans-javanese-fonts \
-        google-noto-sans-sundanese-fonts grub2-tools-extra heif-pixbuf-loader intel-vaapi-driver just libavcodec \
-        libcamera libcamera-gstreamer libcamera-ipa libheif libcamera-tools libfdk-aac libimobiledevice-utils libratbag-ratbagd \
-        libva-utils lshw net-tools nvme-cli openrgb-udev-rules openssl oversteer-udev pam-u2f pam_yubico pamu2fcfg \
-        pipewire-libs-extra pipewire-plugin-libcamera powerstat smartmontools squashfs-tools symlinks tcpdump tmux traceroute \
+        google-noto-sans-sundanese-fonts grub2-tools-extra heif-pixbuf-loader just libavcodec-freeworld \
+        libcamera libcamera-gstreamer libcamera-ipa libheif libcamera-tools libimobiledevice-utils libratbag-ratbagd \
+        libva-utils lshw net-tools nvme-cli openrgb-udev-rules openssl pam-u2f pam_yubico pamu2fcfg \
+        pipewire-plugin-libcamera smartmontools squashfs-tools symlinks tcpdump tmux traceroute \
         usbmuxd wireguard-tools wl-clipboard xhost xorg-x11-xauth yubikey-manager zstd gvfs-nfs ibus-unikey ibus-mozc
 
 # Apps
