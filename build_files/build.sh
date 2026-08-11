@@ -90,6 +90,9 @@ cd /
  # Window Is Ready - Notification Remover
 git clone https://github.com/nunofarruca/WindowIsReady_Remover.git /tmp/WindowIsReady_Remover.git
 cp -r /tmp/WindowIsReady_Remover.git/windowIsReady_Remover@nunofarruca@gmail.com /usr/share/gnome-shell/extensions/
+ # Bluetooth Battery Meter
+git clone https://github.com/maniacx/Bluetooth-Battery-Meter.git /tmp/Bluetooth-Battery-Meter
+cp -r /tmp/Bluetooth-Battery-Meter /usr/share/gnome-shell/extensions/Bluetooth-Battery-Meter@maniacx.github.com
 
 # Schemas
 rm -rf /usr/share/glib-2.0/schemas/org.gnome.shell.gschema.override
