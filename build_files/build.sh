@@ -24,9 +24,19 @@ dnf install -y uupd
 dnf copr -y disable ublue-os/packages
 systemctl enable uupd.timer
 
+# Batteries from uBlue
+dnf install -y -x google-noto-sans-cjk-vf-fonts -x default-fonts-cjk-sans -x fedora-third-party\
+        alsa-firmware apr apr-util distrobox fdk-aac ffmpeg ffmpeg-libs ffmpegthumbnailer flatpak-spawn fuse \
+        fzf google-noto-sans-balinese-fonts google-noto-sans-cjk-fonts google-noto-sans-javanese-fonts \
+        google-noto-sans-sundanese-fonts grub2-tools-extra heif-pixbuf-loader intel-vaapi-driver just libavcodec \
+        libcamera libcamera-gstreamer libcamera-ipa libheif libcamera-tools libfdk-aac libimobiledevice-utils libratbag-ratbagd \
+        libva-utils lshw net-tools nvme-cli openrgb-udev-rules openssl oversteer-udev pam-u2f pam_yubico pamu2fcfg \
+        pipewire-libs-extra pipewire-plugin-libcamera powerstat smartmontools squashfs-tools symlinks tcpdump tmux traceroute \
+        usbmuxd wireguard-tools wl-clipboard xhost xorg-x11-xauth yubikey-manager zstd gvfs-nfs ibus-unikey ibus-mozc
+
 # Apps
 if [ $arch  == "x86_64" ]; then
-        dnf install -y k3b solaar--setopt=install_weak_deps=False
+        dnf install -y k3b solaar solaar-udev --setopt=install_weak_deps=False
 fi
 rpm --import https://packages.microsoft.com/keys/microsoft.asc
 echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | tee /etc/yum.repos.d/vscode.repo > /dev/null
