@@ -59,11 +59,37 @@ dnf install -y \
   gnome-shell-extension-blur-my-shell \
   gnome-shell-extension-gsconnect \
   nautilus-python nautilus-extensions
-  # Workspace scroll extension
+  # Panel Workspace Scroll
 git clone https://github.com/PolyMeilex/gnome-shell-extension-panel-workspace-scroll.git /tmp/gnome-shell-extension-panel-workspace-scroll
 cp -r /tmp/gnome-shell-extension-panel-workspace-scroll/panel-workspace-scroll@polymeilex.github.io /usr/share/gnome-shell/extensions/
+  # GNOME Fuzzy App Search
+git clone https://gitlab.com/czarlie/gnome-fuzzy-app-search.git /tmp/gnome-fuzzy-app-search
+cd /tmp/gnome-fuzzy-app-search
+make install INSTALL_PATH=/usr/share/gnome-shell/extensions
 cd /
-
+  # Rounded Window Corners Reborn
+git clone https://github.com/flexagoon/rounded-window-corners.git /tmp/rounded-window-corners
+cd /tmp/rounded-window-corners
+dnf install -y --setopt=install_weak_deps=False nodejs
+sed -i 's/~\/.local\/share\/gnome-shell\/extensions/\/usr\/share\/gnome-shell\/extensions/g' justfile
+just install
+dnf remove -y --setopt=install_weak_deps=False nodejs
+cd /
+  # Static Workspace Background
+git clone https://github.com/CleoMenezesJr/static-workspace-background.git /tmp/static-workspace-background
+cd /tmp/static-workspace-background
+sed -i 's/$(HOME)\/.local\/share\/gnome-shell\/extensions/\/usr\/share\/gnome-shell\/extensions/g' Makefile
+make install INSTALL_PATH=/usr/share/gnome-shell/extensions
+cd /
+  # Tailscale
+git clone https://github.com/Disk-MTH/Tailscale-Gnome.git /tmp/Tailscale-Gnome
+cd /tmp/Tailscale-Gnome
+sed -i 's/$(HOME)\/.local\/share\/gnome-shell\/extensions/\/usr\/share\/gnome-shell\/extensions/g' Makefile
+make install INSTALL_PATH=/usr/share/gnome-shell/extensions
+cd /
+ # Window Is Ready - Notification Remover
+git clone https://github.com/nunofarruca/WindowIsReady_Remover.git /tmp/WindowIsReady_Remover.git
+cp -r /tmp/WindowIsReady_Remover.git/windowIsReady_Remover@nunofarruca@gmail.com /usr/share/gnome-shell/extensions/
 
 # Schemas
 rm -rf /usr/share/glib-2.0/schemas/org.gnome.shell.gschema.override
