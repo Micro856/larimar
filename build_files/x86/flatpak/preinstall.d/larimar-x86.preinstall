@@ -38,7 +38,7 @@ IsRuntime=false
 Branch=stable
 IsRuntime=false
 
-[Flatpak Preinstall org.mozilla.thunderbird]
+[Flatpak Preinstall org.gnome.Geary]
 Branch=stable
 IsRuntime=false
 
