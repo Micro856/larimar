@@ -101,11 +101,11 @@ cp -r /tmp/Bluetooth-Battery-Meter /usr/share/gnome-shell/extensions/Bluetooth-B
 # Schemas
 rm -rf /usr/share/glib-2.0/schemas/org.gnome.shell.gschema.override
 cp -r /ctx/shared/schemas /usr/share/glib-2.0
-if [ $arch  == "x86_64" ]; then
-        cp -r /ctx/x86/schemas /usr/share/glib-2.0
-elif [ $arch == "aarch64" ]; then
-        cp -r /ctx/arm/schemas /usr/share/glib-2.0
-fi
+#if [ $arch  == "x86_64" ]; then
+        #cp -r /ctx/x86/schemas /usr/share/glib-2.0
+#elif [ $arch == "aarch64" ]; then
+        #cp -r /ctx/arm/schemas /usr/share/glib-2.0
+#fi
 rm -rf /usr/share/glib-2.0/schemas/gschemas.compiled
 glib-compile-schemas /usr/share/glib-2.0/schemas
 
@@ -114,7 +114,7 @@ cp -r /ctx/shared/flatpak /usr/share
 if [ $arch  == "x86_64" ]; then
         cp -r /ctx/x86/flatpak /usr/share
 elif [ $arch == "aarch64" ]; then
-        cp -r /ctx/arm/flatpak /usr/share
+       # cp -r /ctx/arm/flatpak /usr/share
 fi
 cp -r /ctx/lib /usr
 rm -rf /usr/lib/systemd/system/flatpak-add-fedora-repos.service
