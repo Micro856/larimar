@@ -115,6 +115,7 @@ if [ $arch  == "x86_64" ]; then
         cp -r /ctx/x86/flatpak /usr/share
 elif [ $arch == "aarch64" ]; then
        # cp -r /ctx/arm/flatpak /usr/share
+       echo "Nothing yet :D"
 fi
 cp -r /ctx/lib /usr
 rm -rf /usr/lib/systemd/system/flatpak-add-fedora-repos.service
