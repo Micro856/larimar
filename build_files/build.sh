@@ -131,7 +131,7 @@ echo "NoDisplay=true" >> /usr/share/applications/org.freedesktop.MalcontentContr
 echo "NoDisplay=true" >> /usr/share/applications/org.gnome.Extensions.desktop
 
 # Set the default boot screen
-plymouth-set-default-theme bgrt
+plymouth-set-default-theme bgrt -R
 
 # Rebuild kernel just in case
 QUALIFIED_KERNEL="$(dnf5 repoquery --installed --queryformat='%{evr}.%{arch}' "kernel")"
