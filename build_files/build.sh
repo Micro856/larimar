@@ -131,6 +131,7 @@ echo "NoDisplay=true" >> /usr/share/applications/org.freedesktop.MalcontentContr
 echo "NoDisplay=true" >> /usr/share/applications/org.gnome.Extensions.desktop
 
 # Set the default boot screen
+echo kargs = ["rhgb"] >> /usr/lib/bootc/kargs.d/10-plymouth-fix.toml
 plymouth-set-default-theme bgrt -R
 
 # Rebuild kernel just in case
