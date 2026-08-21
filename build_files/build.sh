@@ -130,6 +130,9 @@ echo "NoDisplay=true" >> /usr/share/applications/gcdmaster.desktop
 echo "NoDisplay=true" >> /usr/share/applications/org.freedesktop.MalcontentControl.desktop
 echo "NoDisplay=true" >> /usr/share/applications/org.gnome.Extensions.desktop
 
+# Set the default boot screen
+plymouth-set-default-theme bgrt
+
 # Rebuild kernel just in case
 QUALIFIED_KERNEL="$(dnf5 repoquery --installed --queryformat='%{evr}.%{arch}' "kernel")"
 /usr/bin/dracut --no-hostonly --kver "$QUALIFIED_KERNEL" --reproducible --zstd -v --add ostree --add fido2 -f "/usr/lib/modules/$QUALIFIED_KERNEL/initramfs.img"
