@@ -66,10 +66,6 @@ dnf install -y \
   # Tailscale, Window Is Ready - Notification Remover
 /tmp/scripts/run_module.sh 'gnome-extensions' \
     '{"type":"gnome-extensions","install":["6523","3956","7048","8505","10017","1007"]}'
-git clone https://github.com/AlexanderVanhee/gradia-capture.git /tmp/gradia
-cd /tmp/gradia
-./build.sh -i
-cd /
 
 # Schemas
 rm -rf /usr/share/glib-2.0/schemas/org.gnome.shell.gschema.override
