@@ -62,41 +62,14 @@ dnf install -y \
   gnome-shell-extension-blur-my-shell \
   gnome-shell-extension-gsconnect \
   nautilus-python nautilus-extensions
-  # Panel Workspace Scroll
-git clone https://github.com/PolyMeilex/gnome-shell-extension-panel-workspace-scroll.git /tmp/gnome-shell-extension-panel-workspace-scroll
-cp -r /tmp/gnome-shell-extension-panel-workspace-scroll/panel-workspace-scroll@polymeilex.github.io /usr/share/gnome-shell/extensions/
-  # GNOME Fuzzy App Search
-git clone https://gitlab.com/czarlie/gnome-fuzzy-app-search.git /tmp/gnome-fuzzy-app-search
-cd /tmp/gnome-fuzzy-app-search
-make install INSTALL_PATH=/usr/share/gnome-shell/extensions
+  # Install Panel Workspace Scroll, GNOME Fuzzy App Search, Rounded Window Corners Reborn, Static Workspace Background,
+  # Tailscale, Window Is Ready - Notification Remover
+/tmp/scripts/run_module.sh 'gnome-extensions' \
+    '{"type":"gnome-extensions","install":["6523","3956","7048","8505","10017","1007"]}'
+git clone https://github.com/AlexanderVanhee/gradia-capture.git /tmp/gradia
+cd /tmp/gradia
+./build.sh -i
 cd /
-  # Rounded Window Corners Reborn
-git clone https://github.com/flexagoon/rounded-window-corners.git /tmp/rounded-window-corners
-cd /tmp/rounded-window-corners
-dnf install -y --setopt=install_weak_deps=False nodejs nodejs24-npm
-sed -i 's/~\/.local\/share\/gnome-shell\/extensions/\/usr\/share\/gnome-shell\/extensions/g' justfile
-sed -i 's/npm install/npm install --cache \/tmp\/rounded-window-corners\/build/g' justfile
-just install
-dnf remove -y --setopt=install_weak_deps=False nodejs nodejs24-npm
-cd /
-  # Static Workspace Background
-git clone https://github.com/CleoMenezesJr/static-workspace-background.git /tmp/static-workspace-background
-cd /tmp/static-workspace-background
-sed -i 's/$(HOME)\/.local\/share\/gnome-shell\/extensions/\/usr\/share\/gnome-shell\/extensions/g' Makefile
-make install INSTALL_PATH=/usr/share/gnome-shell/extensions
-cd /
-  # Tailscale
-git clone https://github.com/Disk-MTH/Tailscale-Gnome.git /tmp/Tailscale-Gnome
-cd /tmp/Tailscale-Gnome
-sed -i 's/$(HOME)\/.local\/share\/gnome-shell\/extensions/\/usr\/share\/gnome-shell\/extensions/g' Makefile
-make install INSTALL_PATH=/usr/share/gnome-shell/extensions
-cd /
- # Window Is Ready - Notification Remover
-git clone https://github.com/nunofarruca/WindowIsReady_Remover.git /tmp/WindowIsReady_Remover.git
-cp -r /tmp/WindowIsReady_Remover.git/windowIsReady_Remover@nunofarruca@gmail.com /usr/share/gnome-shell/extensions/
- # Bluetooth Battery Meter
-git clone https://github.com/maniacx/Bluetooth-Battery-Meter.git /tmp/Bluetooth-Battery-Meter
-cp -r /tmp/Bluetooth-Battery-Meter /usr/share/gnome-shell/extensions/Bluetooth-Battery-Meter@maniacx.github.com
 
 # Schemas
 rm -rf /usr/share/glib-2.0/schemas/org.gnome.shell.gschema.override
@@ -131,9 +104,10 @@ echo "NoDisplay=true" >> /usr/share/applications/org.freedesktop.MalcontentContr
 echo "NoDisplay=true" >> /usr/share/applications/org.gnome.Extensions.desktop
 
 # Set the default boot screen
-plymouth-set-default-theme bgrt -R
+dnf install -y plymouth-theme-spinner plymouth --setopt=install_weak_deps=False
+plymouth-set-default-theme bgrt
 
 # Rebuild kernel just in case
 QUALIFIED_KERNEL="$(dnf5 repoquery --installed --queryformat='%{evr}.%{arch}' "kernel")"
-/usr/bin/dracut --no-hostonly --kver "$QUALIFIED_KERNEL" --reproducible --zstd -v --add ostree --add fido2 -f "/usr/lib/modules/$QUALIFIED_KERNEL/initramfs.img"
+/usr/bin/dracut --no-hostonly --kver "$QUALIFIED_KERNEL" --reproducible --zstd -v --add ostree --add fido2 --add plymouth -f "/usr/lib/modules/$QUALIFIED_KERNEL/initramfs.img"
 chmod 0600 /usr/lib/modules/"$QUALIFIED_KERNEL"/initramfs.img
