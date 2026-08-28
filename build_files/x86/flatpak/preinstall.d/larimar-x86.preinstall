@@ -18,10 +18,6 @@ IsRuntime=false
 Branch=stable
 IsRuntime=false
 
-[Flatpak Preinstall net.lutris.Lutris]
-Branch=stable
-IsRuntime=false
-
 [Flatpak Preinstall com.discordapp.Discord]
 Branch=stable
 IsRuntime=false
