@@ -44,7 +44,7 @@ curl -fsSL https://tailscale.com/install.sh | sh
 
 # Apps
 if [ $arch  == "x86_64" ]; then
-        dnf install -y k3b solaar solaar-udev akmod-VirtualBox VirtualBox --setopt=install_weak_deps=False
+        dnf install -y k3b solaar solaar-udev --setopt=install_weak_deps=False
 fi
 rpm --import https://packages.microsoft.com/keys/microsoft.asc
 echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | tee /etc/yum.repos.d/vscode.repo > /dev/null
