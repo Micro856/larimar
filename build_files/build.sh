@@ -66,7 +66,7 @@ dnf install -y \
   # Install Panel Workspace Scroll, GNOME Fuzzy App Search, Rounded Window Corners Reborn, Static Workspace Background,
   # Tailscale, Window Is Ready - Notification Remover
 /tmp/scripts/run_module.sh 'gnome-extensions' \
-    '{"type":"gnome-extensions","install":["6523","3956","7048","8505","1007"]}'
+    '{"type":"gnome-extensions","install":["6523","3956","7048","8505","10017","1007"]}'
 
 # Schemas
 rm -rf /usr/share/glib-2.0/schemas/org.gnome.shell.gschema.override
