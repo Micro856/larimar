@@ -63,6 +63,7 @@ dnf install -y \
   gnome-shell-extension-blur-my-shell \
   gnome-shell-extension-gsconnect \
   nautilus-python nautilus-extensions
+gsettings set org.gnome.shell disable-extension-version-validation "true"
   # Install Panel Workspace Scroll, GNOME Fuzzy App Search, Rounded Window Corners Reborn, Static Workspace Background,
   # Tailscale, Window Is Ready - Notification Remover
 /tmp/scripts/run_module.sh 'gnome-extensions' \
