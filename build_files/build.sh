@@ -60,7 +60,7 @@ cp -r /ctx/shared/gnome-background-properties /usr/share
 # Extensions
 dnf remove -y gnome-shell-extension-*
 dnf install -y \
-  //gnome-shell-extension-blur-my-shell \
+  #gnome-shell-extension-blur-my-shell \
   gnome-shell-extension-gsconnect \
   nautilus-python nautilus-extensions
   # Install Panel Workspace Scroll, GNOME Fuzzy App Search, Rounded Window Corners Native, Static Workspace Background,
