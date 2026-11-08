@@ -66,8 +66,8 @@ dnf install -y \
   # Install Panel Workspace Scroll, GNOME Fuzzy App Search, Rounded Window Corners Native, Static Workspace Background,
   # Tailscale, Window Is Ready - Notification Remover, Solaar, Wiggly
 /tmp/scripts/run_module.sh 'gnome-extensions' \
-    #'{"type":"gnome-extensions","install":["6523","3956","10809","8505","10017","1007","6162","8969"]}' Static Workspace Background not updated yet
     '{"type":"gnome-extensions","install":["6523","3956","10809","10017","1007","6162","8969"]}'
+    #'{"type":"gnome-extensions","install":["6523","3956","10809","8505","10017","1007","6162","8969"]}' Static Workspace Background not updated yet
 # force install Static Workspace Background
 gsettings set org.gnome.shell disable-extension-version-validation "true"
 git clone https://github.com/CleoMenezesJr/static-workspace-background /tmp/static
