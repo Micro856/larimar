@@ -63,11 +63,18 @@ dnf install -y \
   gnome-shell-extension-blur-my-shell \
   gnome-shell-extension-gsconnect \
   nautilus-python nautilus-extensions
-gsettings set org.gnome.shell disable-extension-version-validation "true"
-  # Install Panel Workspace Scroll, GNOME Fuzzy App Search, Rounded Window Corners Reborn, Static Workspace Background,
-  # Tailscale, Window Is Ready - Notification Remover
+  # Install Panel Workspace Scroll, GNOME Fuzzy App Search, Rounded Window Corners Native, Static Workspace Background,
+  # Tailscale, Window Is Ready - Notification Remover, Solaar, Wiggly
 /tmp/scripts/run_module.sh 'gnome-extensions' \
-    '{"type":"gnome-extensions","install":["6523","3956","7048","8505","10017","1007"]}'
+    #'{"type":"gnome-extensions","install":["6523","3956","10809","8505","10017","1007","6162","8969"]}' Static Workspace Background not updated yet
+    '{"type":"gnome-extensions","install":["6523","3956","10809","10017","1007","6162","8969"]}'
+# force install Static Workspace Background
+gsettings set org.gnome.shell disable-extension-version-validation "true"
+git clone https://github.com/CleoMenezesJr/static-workspace-background /tmp/static
+cd /tmp/static
+sed -i 's/$(HOME)\/.local\/share\/gnome-shell/\/usr\/share\/gnome-shell/g' Makefile
+make install
+cd /
 
 # Schemas
 rm -rf /usr/share/glib-2.0/schemas/org.gnome.shell.gschema.override
